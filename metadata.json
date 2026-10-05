@@ -1,0 +1,6 @@
+{
+  "name": "UK Parental Equality & Welfare Rights Portal",
+  "description": "Statutory advocacy portal for parents navigating UK Social Services, Section 17 Children Act support, DWP benefits reinstatement, emergency housing, and both-parent rights under Human Rights Law.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
