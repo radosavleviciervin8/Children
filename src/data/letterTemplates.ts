@@ -3,20 +3,20 @@ import { CaseDetails, LegalTemplate } from '../types/welfare';
 export const initialCaseDetails: CaseDetails = {
   parentFullName: 'Ervin Radosavlevici',
   parentRole: 'Father',
-  parentAddress: 'Flat 3, Temporary Accommodation, 14 St. Jude Court',
-  parentPostcode: 'E1 4PQ',
+  parentAddress: '78 Westbourne Terrace',
+  parentPostcode: 'W2 6QA',
   parentPhone: '07123 456789',
   parentEmail: 'radosavleviciervin8@gmail.com',
-  nationalInsuranceNumber: 'QQ 12 34 56 A',
+  nationalInsuranceNumber: 'SR 64 90 74 C',
 
   childFullName: 'Daughter / Child in Need',
   childDateOfBirth: '14/05/2018',
   childCurrentPlacement: 'Currently separated under Children\'s Social Care interim arrangements',
 
-  localAuthorityName: 'Local Council Children\'s Services',
+  localAuthorityName: 'Westminster City Council (Children\'s Services)',
   socialWorkerName: 'Allocated Social Worker / Team Manager',
   directorOfChildrenServices: 'The Director of Children\'s Services',
-  councilAddress: 'Town Hall / Civic Centre, Directorate for Children & Families',
+  councilAddress: 'Westminster City Hall, 64 Victoria Street, London, SW1E 6QP',
 
   housingOfficerName: 'Housing Options Duty Officer',
   housingOptionsAddress: 'Housing Options Team, Homelessness Prevention Services',

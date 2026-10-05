@@ -1,13 +1,19 @@
 import React from 'react';
-import { Shield, AlertCircle, Scale, FileText, Users, PhoneCall, Calendar } from 'lucide-react';
+import { Shield, AlertCircle, Scale, FileText, Users, PhoneCall, Calendar, Lock, LogOut } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onEmergencyClick: () => void;
+  onOpenSecurity: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onEmergencyClick }) => {
+export const Header: React.FC<HeaderProps> = ({ 
+  activeTab, 
+  setActiveTab, 
+  onEmergencyClick,
+  onOpenSecurity
+}) => {
   const navLinks = [
     { id: 'emergency', label: 'Emergency Crisis Plan', icon: AlertCircle },
     { id: 'draftsman', label: 'Legal Notice Draftsman', icon: FileText },
@@ -16,6 +22,11 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onEmerg
     { id: 'directory', label: 'Statutory Directory', icon: PhoneCall },
     { id: 'tracker', label: 'Case Timeline & Vault', icon: Calendar },
   ];
+
+  const handleQuickExit = () => {
+    // Immediate redirect to innocuous site for user safety
+    window.location.replace('https://www.bbc.co.uk/weather');
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-xs no-print">
@@ -27,10 +38,24 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onEmerg
             <span className="text-slate-500">|</span>
             <span className="text-slate-300">Children Act 1989 · Housing Act 1996 · Human Rights Act 1998 · GOV.UK Standards</span>
           </div>
-          <div className="hidden sm:flex items-center gap-4 text-slate-400">
-            <span>Free Public Legal Guidance</span>
-            <span>·</span>
-            <span className="text-emerald-400 font-medium">Confidential & Client-Side Only</span>
+          <div className="flex items-center gap-3 text-slate-400">
+            <button
+              onClick={onOpenSecurity}
+              className="hover:text-amber-300 text-slate-300 font-medium transition-colors flex items-center gap-1 text-[11px]"
+              title="View Client-Side Security & Privacy Policy"
+            >
+              <Lock className="w-3 h-3 text-emerald-400" />
+              <span>Zero-Cloud Privacy Guarantee</span>
+            </button>
+            <span className="hidden sm:inline">·</span>
+            <button
+              onClick={handleQuickExit}
+              className="hidden sm:inline-flex items-center gap-1 text-[11px] text-rose-300 hover:text-white bg-rose-950/80 px-2 py-0.5 rounded border border-rose-800 transition-colors"
+              title="Instantly leave this site to BBC Weather for privacy"
+            >
+              <LogOut className="w-3 h-3" />
+              <span>Quick Safety Exit</span>
+            </button>
           </div>
         </div>
       </div>
@@ -73,13 +98,20 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onEmerg
         </nav>
 
         {/* Zone 3: 1-2 primary actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <button
             onClick={onEmergencyClick}
             className="px-3.5 py-1.5 text-xs font-semibold text-white bg-rose-700 hover:bg-rose-800 active:bg-rose-900 rounded-md transition-colors shadow-xs flex items-center gap-1.5 whitespace-nowrap"
           >
             <AlertCircle className="w-3.5 h-3.5" />
             <span>Crisis Action Plan</span>
+          </button>
+          <button
+            onClick={handleQuickExit}
+            className="sm:hidden px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:text-rose-700 bg-slate-100 hover:bg-slate-200 rounded-md transition-colors"
+            title="Quick Safety Exit"
+          >
+            <LogOut className="w-3.5 h-3.5 text-rose-700" />
           </button>
         </div>
       </div>
